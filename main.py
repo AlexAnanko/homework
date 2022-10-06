@@ -38,32 +38,3 @@
 #         if n > i.get("score"):
 #             print(i)
 
-# В файле могут быть записаны десятичные цифры и все, что угодно.
-# Числом назовем последовательность цифр, идущих подряд (т.е. число всегда неотрицательно).
-#
-# Вычислите сумму всех чисел, записанных в файле. В данной задаче удобно считывать данные посимвольно.
-
-with open('summa_chisel.txt', 'w') as f:
-    f.write("123nnweov\n4pq5le\n1qpw6l\n4 5 6 7 8 9\nqk27fpwqk4lom3")
-
-alpha = []
-num = []
-numbers = ""
-
-with open('summa_chisel.txt', 'r') as f:
-    for line in f:
-        summa = 0
-        for i in line:
-            i.split(" ")
-            if i.endswith("\n"):
-                i.replace("\n", "")
-            elif not i.isalpha():
-                i.replace(i," ")
-                # print(i, end="")
-                num.append(i)
-            # else:
-            #     print(" ", end="")
-                # alpha.append(i)
-    print(num)
-    print(numbers)
-    #print(summa)
