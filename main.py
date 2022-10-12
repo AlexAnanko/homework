@@ -1,3 +1,5 @@
+from math import tan
+
 # В текстовый файл построчно записаны фамилия и имя учащихся класса и его оценка за контрольную.
 # Вывести на экран всех учащихся, чья оценка меньше 3 баллов
 #
@@ -190,3 +192,182 @@
 #     print(round(party_one))
 #     print(round(party_two))
 #     print(round(party_three))
+
+# Класс "ПчёлоСлон"(BeeElephant)
+#
+#  Экземпляр класса инициализируется двумя целыми числами: первое относится к пчеле, второе - к слону.
+# Класс реализует следующие методы:
+# - fly() - может летать - возвращает True,если часть пчелы не меньше части слона, иначе False.
+# - еtrumpet() - трубить - если часть слона не мегьше части пчелы, возвращает строку "tu-tu-doo-doo!", иначе "wzzzzz"
+# - eat(meal, value) - есть - может есть только нектар(nectar) или траву(grass). Если съедает нектар, то из части слона
+# вычитается количество съеденного, пчеле добавляется, иначе наоборот. Не может увеличится больше 100 и уменьшится
+# меньше 0.
+# -get_parts() - возвращает список из значений.
+
+# class BeeElephant:
+#
+#     def __init__(self, bee, elephant):
+#         self.bee = bee
+#         self.elephant = elephant
+#
+#     def fly(self):
+#         if self.bee > self.elephant:
+#             return True
+#         else:
+#             return False
+#
+#     def trumpet(self):
+#         if self.bee < self.elephant:
+#             return "tu-tu-doo-doo!"
+#         else:
+#             return "wzzzzz"
+#
+#     def eat(self, meal, value):
+#         if meal == "nectar":
+#             self.bee = self.bee + value
+#             if self.bee > 100:
+#                 self.bee = 100
+#             self.elephant = self.elephant - value
+#             if self.elephant < 100:
+#                 self.elephant = 0
+#             return self.bee, self.elephant
+#         else:
+#             self.bee = self.bee - value
+#             if self.bee < 0:
+#                 self.bee = 0
+#             self.elephant = self.elephant + value
+#             if self.elephant > 100:
+#                 self.elephant = 100
+#             return self.bee, self.elephant
+#
+#     def get_parts(self):
+#         return self.bee, self.elephant
+#
+# be = BeeElephant(3,2)
+# print(be.fly())
+# print(be.trumpet())
+# be.eat("grass", 4)
+# print(be.get_parts())
+# print("==================")
+# be1 = BeeElephant(13,87)
+# print(be1.fly())
+# print(be1.trumpet())
+# be1.eat("nectar", 90)
+# print(be1.get_parts())
+#
+# Класс "Прямоугольный треугольник"
+#
+# Класс содержит два действительных числа - стороны треугольника и включает следующие методы:
+# - увеличение/уменьшение размера стороны на заданное количество процентов;
+# - вычисление радиуса описанной окружности;
+# - вычисление периметра;
+# - определение значений углов
+#
+# class Triangle:
+#
+#     def __init__(self, a : int, b : int):
+#         self.a = a
+#         self.b = b
+#
+#     def percent_change_increase(self, persent):
+#         return self.a * ((persent + 100) / 100), self.b * ((persent + 100) / 100)
+#
+#     def percent_change_decrease(self, persent):
+#         return round(self.a / ((persent + 100) / 100),4), round(self.b / ((persent + 100) / 100), 4)
+#
+#     def radius_circle(self):
+#         c = (self.a ** 2 + self.b ** 2) ** (0.5)
+#         s = (self.a * self.b) / 2
+#         radius = (self.a * self.b * c) / (4 * s)
+#         return round(radius, 4)
+#
+#     def perimeter(self):
+#         c = (self.a ** 2 + self.b ** 2) ** (0.5)
+#         perimeter = self.a + self.b + c
+#         return round(perimeter, 4)
+#
+#     def angles(self):
+#         alpha = tan(self.a / self.b)
+#         betta = 1 / alpha
+#         return round(alpha, 4), round(betta, 4)
+#
+# t = Triangle(2,4)
+# print(t.percent_change_increase(30))
+# print(t.percent_change_decrease(30))
+# print(t.radius_circle())
+# print(t.perimeter())
+# print(t.angles())
+#
+# Класс "Автобус"
+#
+# Класс содержит свойства:
+# - speed(скорость);
+# - capacity(максимальную вместимость);
+# - maxSpeed(максимальную скорость);
+# - passengers(список имен пассажиров);
+# - hasEmptySeats(наличие свободных мест);
+# - seats(словарь мест в автобусе);
+# методы:
+# - посадка и высадка одного или нескольких пассажиров;
+# - увеличение и уменьшение скорости на заданное значение;
+# - операции "in", "+=", "-="(посадка и высадка пассажира(ов) с заданной фамилией.
+#
+# class Bus:
+#
+#     def __init__(self, speed, capacity):
+#         self.speed = speed
+#         self.capacity = capacity
+#         self.maxSpeed = 50
+#         self.passengers = ["Alex", "Dave", "Bob", "Jane"]
+#         self.seats = {"Alex" : "1", "Dave" : "2", "Bob" : "3","Jane" : "4"}
+#         self.hasEmptySeats = (self.capacity - 2) - len(self.seats)
+#
+#     def passenger_in(self, n):
+#         if len(self.passengers) + n < self.capacity:
+#             return f"{n} пассажиров зашло в автобус, количество пассажиров {len(self.passengers) + n}"
+#         else:
+#             return "Автобус переполнен"
+#
+#     def passenger_out(self, n):
+#         if len(self.passengers) - n > 0:
+#             return f"{n} пассажиров вышло из автобуса, количество пассажиров {len(self.passengers) - n}"
+#         else:
+#             return "Автобус пуст"
+#
+#     def speed_increase(self, km):
+#         if self.speed + km > self.maxSpeed:
+#             return self.maxSpeed
+#         else:
+#             return self.speed + km
+#
+#     def speed_decrease(self, km):
+#         if self.speed - km < 0:
+#             return "Автобус остановился"
+#         else:
+#             return self.speed - km
+#
+#     def passenger_name_in(self,passenger):
+#         if len(self.passengers) < self.capacity:
+#             self.passengers.append(passenger)
+#             if self.hasEmptySeats > 0:
+#                 self.seats[passenger] = str(len(self.seats) + 1)
+#             return self.passengers, self.seats, self.hasEmptySeats
+#         else:
+#             return "Автобус переполнен"
+#
+#     def passenger_name_out(self, passenger):
+#         if passenger in self.passengers:
+#             self.passengers.remove(passenger)
+#             if passenger in self.seats:
+#                 del self.seats[passenger]
+#             return self.passengers, self.seats
+#         else:
+#             return "Такого пассажира не числится"
+#
+# b = Bus(40, 8)
+# print(b.passenger_in(1))
+# print(b.passenger_out(1))
+# print(b.speed_increase(5))
+# print(b.speed_decrease(5))
+# print(b.passenger_name_in("Tom"))
+# print(b.passenger_name_out("Bob"))
