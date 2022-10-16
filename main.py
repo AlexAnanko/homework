@@ -1,4 +1,4 @@
-from math import tan
+from math import tan, degrees
 
 # В текстовый файл построчно записаны фамилия и имя учащихся класса и его оценка за контрольную.
 # Вывести на экран всех учащихся, чья оценка меньше 3 баллов
@@ -287,8 +287,8 @@ from math import tan
 #         return round(perimeter, 4)
 #
 #     def angles(self):
-#         alpha = tan(self.a / self.b)
-#         betta = 1 / alpha
+#         alpha = degrees(tan(self.a / self.b))
+#         betta = 90 - alpha
 #         return round(alpha, 4), round(betta, 4)
 #
 # t = Triangle(2,4)
@@ -371,3 +371,285 @@ from math import tan
 # print(b.speed_decrease(5))
 # print(b.passenger_name_in("Tom"))
 # print(b.passenger_name_out("Bob"))
+
+import random
+
+# Выполнить обработку элементов прямоугольной матрицы А, имеющей N строк и М столбцов.
+# Перемножить элементы каждого столбца матрицы с соответствующими элементами Кго столбца.
+
+# N = 4
+# M = 6
+#
+# matrix = []
+# new_matrix = []
+# k = []
+# for i in range(0,M):
+#     matrix.append([])
+#     for j in range(0,N):
+#         n = random.randint(0,10)
+#         matrix[i].append(n)
+#         if j == 2:
+#             k.append(matrix[i][j])
+#     print(matrix[i])
+# print("-------------------------")
+# for i in range(0,M):
+#     new_matrix.append([])
+#     for j in range(0,N):
+#         m = matrix[i][j] * k[i]
+#         new_matrix[i].append(m)
+#     print(new_matrix[i])
+# print("\n", k)
+
+# Выполнить обработку элементов прямоугольной матрицы А, имеющей N строк и М столбцов.
+# Просуммировать элементы каждой строки матрицы с соответствующими элементами L той строки.
+
+# N = 6
+# M = 5
+#
+# matrix = []
+# new_matrix = []
+# L = []
+# for i in range(0,M):
+#     matrix.append([])
+#     for j in range(0,N):
+#         n = random.randint(0,10)
+#         matrix[i].append(n)
+#         if i == 2:
+#             L.append(matrix[i][j])
+#     print(matrix[i])
+# print("----------------------------")
+# for i in range(0,M):
+#     new_matrix.append([])
+#     for j in range(0,N):
+#         n = matrix[i][j] + L[j]
+#         new_matrix[i].append(n)
+#     print(new_matrix[i])
+# print("\n",L)
+
+# Выполнить обработку элементов прямоугольной матрицы А, имеющей N строк и М столбцов.
+# Все элементы имеют целый тип. Дано целое число Н.
+# Определить, какие столбцы имеют хотя бы одно такое число, а какие не имеют.
+#
+# N = 7
+# M = 5
+#
+# matrix = []
+# J = []
+# str_J = ""
+# H = int(input("Введите искомое число: "))
+# for i in range(0,M):
+#     matrix.append([])
+#     for j in range(0,N):
+#         n = random.randint(0,10)
+#         matrix[i].append(n)
+#         c = matrix[i].count(H)
+#     print(matrix[i])
+# print("-------------------")
+# for j in range(0,N):
+#     for i in range(0,M):
+#         if matrix[i][j] == H:
+#             J.append(j)
+# for i in J:
+#     k = J.count(i)
+#     if k > 1:
+#         J.remove(i)
+#
+# str_J = ", ".join(str(i) for i in J)
+#
+# print("\nИскомое число =", H)
+# if len(J) == 0:
+#     print("Такого числа в массиве не найдено.")
+# else:
+#     print(f"Искомое число встречается в следующих столбцах массива: {str_J}")
+
+# Выполнить обработку элементов прямоугольной матрицы А, имеющей N строк и М столбцов.
+# Исходная матрица состоит из нулей и единиц.
+# Добавить к матрице еще один столбец, каждый элемент которого делает количество единиц в каждой строке четным.
+
+# N = 8
+# M = 7
+#
+# matrix = []
+#
+# h = 1
+# L = []
+# for i in range(0,M):
+#     matrix.append([])
+#     for j in range(0,N):
+#         n = random.randint(0,1)
+#         matrix[i].append(n)
+# for i in range(0,M):
+#     for j in range(0,N):
+#         matrix[i].count(h)
+#     if matrix[i].count(h) % 2 != 0:
+#         L.append(1)
+#     else:
+#         L.append(0)
+#     print(matrix[i], L[i])
+
+
+# Класс "Темы" (Themes)
+#
+# Экземпляру класса при инициализации передается аргумент - список тем для разговора.
+# Класс реализует методы:
+# - add_theme(value) - добавить тему в конец;
+# - shift_one() - сдвинуть темы на одну вправо (последняя становится первой, остальные сдвигаются);
+# - reverse_order() - поменять порядок тем на обратный;
+# - get_themes() - возвращает список тем;
+# - get_first() - возвращает первую тему.
+#
+# class Themes:
+#
+#     def __init__(self, themes : list):
+#         self.themes = themes
+#
+#     def add_theme(self, value):
+#         return self.themes.append(value)
+#
+#     def shift_one(self):
+#         self.themes.insert(0, self.themes[-1])
+#         self.themes.pop(-1)
+#         return self.themes
+#
+#     def reverse_order(self):
+#         return self.themes.reverse()
+#
+#     def get_themes(self):
+#         return self.themes
+#
+#     def get_first(self):
+#         return self.themes[0]
+#
+# # t1 = Themes(['weather', 'rain'])
+# # t1.add_theme('warm')
+# # print(t1.get_themes())
+# # print(t1.shift_one())
+# # print(t1.get_first())
+# t1 = Themes(['sun', 'feeling'])
+# t1.add_theme('cool')
+# t1.shift_one()
+# print(t1.get_first())
+# t1.reverse_order()
+# print(t1.get_themes())
+
+# Класс "Одномерный массив" TArray
+#
+#       Класс содержит поле для задания количества элементов и поле для хранения элементов массива.
+#   Методы:
+#   - конструктор без параметров, конструктор с параметрами, конструктор копирования
+#   - ввод и вывод данных
+#   - поиск максимального и минимального значений
+#   - сортировка массива
+#   - поиск суммы элементов
+#   - перегрузка оператора + (добавление элемента)
+#   - перегрузка оператора * (умножение элементов массива на число)
+#
+# class TArray:
+#
+#     def __init__(self, num, elem : list):
+#         self.num = num
+#         self.elem = elem
+#
+#     def copy_constructor(self,elem):
+#         return copy.copy(elem)
+#
+#     def input_method(self, num):
+#         for i in range(0,num):
+#             a = int(input("Ввод данных: "))
+#             self.elem.append(a)
+#         return self.elem
+#
+#     def get_method(self):
+#         return self.elem
+#
+#     def max_search(self):
+#         max = self.elem[0]
+#         min = self.elem[0]
+#         for i in self.elem:
+#             if i > max:
+#                 max = i
+#             if i < min:
+#                 min = i
+#         return max, min
+#
+#     def sort_method(self):
+#         self.elem.sort()
+#         return self.elem
+#
+#     def sum_method(self):
+#         sum = 0
+#         for i in self.elem:
+#             sum += i
+#         return sum
+#
+#     def __add__(self, other):
+#         self.elem.append(other)
+#         return self.elem
+#
+#     def __mul__(self, other):
+#         new_elem = []
+#         for i in self.elem:
+#             new_elem.append(i * other)
+#         return new_elem
+#
+# t = TArray(5,[])
+# t.input_method(5)
+# # print(t.get_method())
+# # print(t.max_search())
+# # print(t.sort_method())
+# # print(t.sum_method())
+# # print(t.__add__(2))
+# # print(t.__mul__(2))
+#
+#
+# Класс "Разговор"(Talking)
+#
+#   Экземпляр класса инициализируется с аргументом name - именем котенка. Класс реализует методы:
+#   - to_answer() - ответить: котенок через один раз отвечает да или нет, начиная с да. Метод возвращает "moore-moore"
+#   если да и "meow-meow", если нет. Одновременно увеличивает количество соответствующих ответов.
+#   - number_yes() - количество ответов да.
+#   - number_no() - количество ответов нет.
+#
+# class Talking:
+#
+#     def __init__(self, name):
+#         self.name = name
+#         self.number_yes = 0
+#         self.number_no = 0
+#         self.result = 0
+#
+#
+#     def to_answer(self):
+#         if self.result == 0:
+#             self.result = 1
+#             self.number_yes += 1
+#             return "moore-moore"
+#         else:
+#             self.result = 0
+#             self.number_no += 1
+#             return "meow-meow"
+#
+#     def number_yes(self):
+#         return self.number_yes
+#
+#     def number_no(self):
+#         return self.number_no
+#
+# tk = Talking('Tomas')
+# tk1 = Talking('Bob')
+# print(tk.to_answer())
+# print(tk.to_answer())
+# print(tk.to_answer())
+# print(f"{tk.name} says 'yes' {tk.number_yes} times, 'no' {tk.number_no} times")
+# print(tk.to_answer())
+# print(tk1.to_answer())
+# print(tk1.to_answer())
+# # print(tk1.to_answer())
+# print(f"{tk.name} says 'yes' {tk.number_yes} times, 'no' {tk.number_no} times")
+# print(f"{tk1.name} says 'yes' {tk1.number_yes} times, 'no' {tk1.number_no} times")
+
+
+
+
+
+
